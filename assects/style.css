@@ -1,0 +1,11 @@
+section{
+  height: 400px;
+}
+section>div{
+    border: 2px solid black;
+}
+body>section>div:nth-child(1){
+    background-image: url("assects/image/box.jpg");
+    background-position: center;
+
+}
