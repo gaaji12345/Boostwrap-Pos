@@ -121,22 +121,22 @@
          $("#tb").append(row);
        console.log(customerId,cusName,cusAddress,cusSalary);
 
-       // $("#tb>tr").click(function () {
-       //     // console.log($(this));
-       //     let cusId=$(this).children(":eq(0)").text();
-       //     let cusName=$(this).children(":eq(1)").text();
-       //     let cusAddress=$(this).children(":eq(2)").text();
-       //     let cusSalary=$(this).children(":eq(3)").text();
-       //
-       //    // console.log(cusId,cusName,cusAddress,cusTel);
-       //
-       //
-       //      $("#inputId").val(cusId);
-       //      $("#inputName").val(cusName);
-       //     $("#inputAddress").val(cusAddress);
-       //      $("#inputsalary").val(cusSalary);
-       //
-       // });
+       $("#tb>tr").click(function () {
+           // console.log($(this));
+           let cusId=$(this).children(":eq(0)").text();
+           let cusName=$(this).children(":eq(1)").text();
+           let cusAddress=$(this).children(":eq(2)").text();
+           let cusSalary=$(this).children(":eq(3)").text();
+
+          // console.log(cusId,cusName,cusAddress,cusTel);
+
+
+            $("#input1").val(cusId);
+            $("#input2").val(cusName);
+           $("#input3").val(cusAddress);
+            $("#input4").val(cusSalary);
+
+       });
 
 
    });
