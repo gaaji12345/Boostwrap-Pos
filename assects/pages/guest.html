@@ -49,118 +49,99 @@
 </nav>
 
 <main class="container-fluid">
-    <section class="row border border-1 ">
-        <div class="col">
-            <br>
-            <br>
-            <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="First name" aria-label="First name">
-                </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name">
-                </div>
-            </div>
-            <form class="row g-3">
-                <div class="col-md-6">
-                    <label for="inputEmail4" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="inputEmail4">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputPassword4" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="inputPassword4">
-                </div>
-                <div class="col-12">
-                    <label for="inputAddress" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="inputAddress" placeholder=" Galle, Road">
-                </div>
-                <div class="col-md-6">
-                    <label for="inputCity" class="form-label">City</label>
-                    <input type="text" class="form-control" id="inputCity">
-                </div>
-                <div class="col-md-4">
-                    <label for="inputState" class="form-label">State</label>
-                    <select id="inputState" class="form-select">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <label for="inputZip" class="form-label">Zip</label>
-                    <input type="text" class="form-control" id="inputZip">
-                </div>
-                <div class="col-12">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck">
-                        <label class="form-check-label" for="gridCheck">
-                            Check me out
-                        </label>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <button type="submit" class="btn btn-primary"> SAVE</button>
-                </div>
-            </form>
-        </div>
-        <div class="col ">
-            <br>
+    <section class="row">
+<!--        <div class="col"></div>-->
+        <div class="col-7">
             <div class="mb-3">
-                <label for="exampleFormControlInput1" class="form-label">Guest Name</label>
-                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Search Guest">
+                <label for="input1" class="form-label">Guest-ID</label>
+                <input type="text" class="form-control" id="input1" placeholder="Guest-ID">
+                <p><small id="error" class="text-bg-danger"></small></p>
             </div>
-            <button type="button" class="btn btn-secondary">SEARCH</button>
+            <div class="mb-3">
+                <label for="input2" class="form-label">Guest Name</label>
+                <input type="text" class="form-control" id="input2" placeholder="Guest-Name">
+            </div>
+            <div class="mb-3">
+                <label for="input3" class="form-label">Address</label>
+                <input type="text" class="form-control" id="input3" placeholder="Address">
+            </div>
+            <div class="mb-3">
+                <label for="input4" class="form-label">Slary</label>
+                <input type="tel" class="form-control" id="input4" placeholder="salary">
+            </div>
+
+            <button type="submit" id="btnsave" class="btn btn-primary"> SAVE</button>
             <button type="button" class="btn btn-success">UPDATE</button>
             <button type="button" class="btn btn-danger">DELETE</button>
-
+        </div>
+        <div class="col">
+            <div class="mb-3">
+                <label for="input4" class="form-label">Find</label>
+                <input type="text"  class="form-control" id="input5" placeholder="Find">
+                <button type="button" id="btnsearch" class="btn btn-secondary">SEARCH</button>
+            </div>
         </div>
     </section>
 </main>
 <br>
 
-<div class="shadow-lg">
-<table class="table table-bordered  mt-5">
-    <thead class="table-dark ">
-    <tr>
-        <th scope="col">Frist</th>
-        <th scope="col">Last</th>
-        <th scope="col">Email</th>
-        <th scope="col">Country</th>
-        <th scope="col">Zip</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th scope="row">Gaaji</th>
-        <td>Max</td>
-        <td>gaaji12@gmail.com</td>
-        <td>India</td>
-        <td>23567</td>
-    </tr>
-    <tr>
-        <th scope="row">John</th>
-        <td>Dooll</td>
-        <td>hornton@gmail.com</td>
-        <td>America</td>
-        <td>637278387</td>
-    </tr>
-    <tr>
-        <th scope="row">Wasim</th>
-        <td>JIgha</td>
-        <td>wasimajhgdh12@gmail.com</td>
-        <td>Arab</td>
-        <td>889g989</td>
-    </tr>
-    <tr>
-        <th scope="row">Kane</th>
-        <td>Jacob</td>
-        <td>kanejavmdgf76@gmail.co,</td>
-        <td>Australia</td>
-        <td>3647234hg</td>
-    </tr>
+<div class="shadow-lg container-fluid">
+    <table class="table table-bordered  mt-3">
+        <thead class="table-dark ">
+        <tr>
+            <th scope="col">Customer-ID</th>
+            <th scope="col">Customer-Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Salary</th>
 
+        </tr>
+        </thead>
+        <tbody id="tb">
 
-    </tbody>
-</table>
+        </tbody>
+    </table>
 </div>
+
+<script src="js/bootstrap.min.js"></script>
+<script src="jquery-3.7.1.min.js"></script>
+
+<script>
+
+   $("#btnsave").click(function () {
+
+       let customerId= $("#input1").val();
+       let cusName= $("#input2").val();
+       let cusAddress=  $("#input3").val();
+       let cusSalary=  $("#input4").val();
+
+
+        let row= `<tr><th>${customerId}</th> <th>${cusName}</th> <th>${cusAddress}</th> <th>${cusSalary}</th> </tr>`;
+         console.log(row);
+
+         $("#tb").append(row);
+       console.log(customerId,cusName,cusAddress,cusSalary);
+
+       // $("#tb>tr").click(function () {
+       //     // console.log($(this));
+       //     let cusId=$(this).children(":eq(0)").text();
+       //     let cusName=$(this).children(":eq(1)").text();
+       //     let cusAddress=$(this).children(":eq(2)").text();
+       //     let cusSalary=$(this).children(":eq(3)").text();
+       //
+       //    // console.log(cusId,cusName,cusAddress,cusTel);
+       //
+       //
+       //      $("#inputId").val(cusId);
+       //      $("#inputName").val(cusName);
+       //     $("#inputAddress").val(cusAddress);
+       //      $("#inputsalary").val(cusSalary);
+       //
+       // });
+
+
+   });
+
+</script>
+
 </body>
 </html>
