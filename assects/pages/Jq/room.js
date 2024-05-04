@@ -21,6 +21,8 @@ $("#btnsave").click(function () {
 
     loadAllrooms();
 
+    btnRowClick();
+
     // let row = `<tr><th>${roomId}</th> <th>${roomtype}</th> <th>${roomstatus}</th> <th>${roomprice}</th> </tr>`;
     // console.log(row);
     //
@@ -40,5 +42,23 @@ $("#btnsave").click(function () {
       }
 
   }
+
+function btnRowClick (){
+    $('#tb>tr').click(function (){
+        let id=$(this).children(":eq(0)").text();
+        let type=$(this).children(":eq(1)").text();
+        let status=$(this).children(":eq(2)").text();
+        let price=$(this).children(":eq(3)").text();
+
+        console.log(id,type,status,price);
+
+        $('#input1').val(id);
+        $('#input2').val(type);
+        $('#input3').val(status);
+        $('#input4').val(price);
+
+    });
+
+}
 
 
