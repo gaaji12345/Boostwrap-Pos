@@ -23,11 +23,7 @@ $("#btnsave").click(function () {
 
     btnRowClick();
 
-    // let row = `<tr><th>${roomId}</th> <th>${roomtype}</th> <th>${roomstatus}</th> <th>${roomprice}</th> </tr>`;
-    // console.log(row);
-    //
-    // $("#tb").append(row);
-   // console.log(customerId, cusName, cusAddress, cusSalary);
+
 
 
 });
@@ -59,6 +55,26 @@ function btnRowClick (){
 
     });
 
+
 }
+
+
+$('#input1').on('keydown',function (event){
+    if (event.key=='Enter') {
+        $('#input2').focus();
+    }
+});
+
+$('#input2').on('keydown',function (event){
+    if (event.key=='Enter') {
+        $('#input3').focus();
+    }
+});
+
+$('#input3').on('keydown',function (event){
+    if (event.key=='Enter') {
+        $('#input4').focus();
+    }
+});
 
 
