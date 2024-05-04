@@ -89,3 +89,33 @@ $('#input3').on('keydown',function (event){
 });
 
 
+function  searchRoom(id){
+    for (let i=0;i<rooms.length;i++){
+        if (rooms[i].id == id){
+            return rooms[i];
+        }
+    }
+}
+
+$("#btnsearch").click(function () {
+    var  searchId=$("#input5").val();
+    var responce=searchRoom(searchId);
+    if (responce){
+        $("#input1").val(responce.id);
+        $("#input2").val(responce.type);
+        $("#input3").val(responce.status);
+        $("#input4").val(responce.price);
+
+
+    }else {
+        clearAll();
+        alert("No such Rooms...!")
+    }
+
+
+
+
+});
+
+
+
