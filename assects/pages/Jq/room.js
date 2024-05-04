@@ -23,6 +23,8 @@ $("#btnsave").click(function () {
 
     btnRowClick();
 
+    doubleClick();
+
 
 
 
@@ -40,7 +42,18 @@ $("#btnsave").click(function () {
   }
 
 function btnRowClick (){
-    $('#tb>tr').click(function (){
+    $("#tb>tr").dblclick(function () {
+        // $("#tb>tr").remove();
+        // alert("fdfdf");
+        $(this).remove();
+
+
+    });
+
+}
+
+function doubleClick(){
+    $('#tb>tr').dblclick(function (){
         let id=$(this).children(":eq(0)").text();
         let type=$(this).children(":eq(1)").text();
         let status=$(this).children(":eq(2)").text();
@@ -48,14 +61,12 @@ function btnRowClick (){
 
         console.log(id,type,status,price);
 
-        $('#input1').val(id);
-        $('#input2').val(type);
-        $('#input3').val(status);
-        $('#input4').val(price);
+        $('#input1').remove(id);
+        $('#input2').remove(type);
+        $('#input3').remove(status);
+        $('#input4').remove(price);
 
     });
-
-
 }
 
 
