@@ -30,6 +30,26 @@ $("#btnsave").click(function () {
 
 });
 
+// $('#input1').on('keyup',function (event){
+//     if (event.code=="Enter"){
+//         let typeId=$('#input1').val();
+//         let room= search(typeId);
+//         if (customer!=null){
+//             $('#input1').val(room.id);
+//             $('#input2').val(room.type);
+//             $('#input3').val(room.status);
+//             $('#input4').val(room.price);
+//         }else {
+//             alert("There is no rooms....!"+typeId);
+//         }
+//     }
+// });
+
+$('#btndelete').click(function (){
+    let deleteId= $('#input1').val();
+    deleteRoom(deleteId);
+});
+
   function loadAllrooms(){
 
       $('#tb').empty();
@@ -70,23 +90,23 @@ function doubleClick(){
 }
 
 
-$('#input1').on('keydown',function (event){
-    if (event.key=='Enter') {
-        $('#input2').focus();
-    }
-});
-
-$('#input2').on('keydown',function (event){
-    if (event.key=='Enter') {
-        $('#input3').focus();
-    }
-});
-
-$('#input3').on('keydown',function (event){
-    if (event.key=='Enter') {
-        $('#input4').focus();
-    }
-});
+// $('#input1').on('keydown',function (event){
+//     if (event.key=='Enter') {
+//         $('#input2').focus();
+//     }
+// });
+//
+// $('#input2').on('keydown',function (event){
+//     if (event.key=='Enter') {
+//         $('#input3').focus();
+//     }
+// });
+//
+// $('#input3').on('keydown',function (event){
+//     if (event.key=='Enter') {
+//         $('#input4').focus();
+//     }
+// });
 
 
 function  searchRoom(id){
@@ -112,10 +132,27 @@ $("#btnsearch").click(function () {
         alert("No such Rooms...!")
     }
 
-
-
-
 });
+
+function deleteRoom(cId){
+    let room=searchRoom(cId);
+    if (room!=null){
+        let indexof=rooms.indexOf(room);
+        rooms.splice(indexof,1);
+        loadAllrooms();
+    }
+}
+
+
+
+// function search(cudId){
+//     for (let room of rooms) {
+//         if (room.id == cudId) {
+//             return room;
+//         }
+//     }
+//     return null;
+// }
 
 
 
