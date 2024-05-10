@@ -50,6 +50,24 @@ $('#btndelete').click(function (){
     deleteRoom(deleteId);
 });
 
+$('#btnuPdate').click(function (){
+    // for (let i = 0; i < customers.length; i++) {
+    //     console.log(customers[i].id);
+    // }
+
+    //loadAll();
+    let cusid=$('#input1').val();
+    let respo=updateRoom(cusid);
+    if (respo){
+        alert("Update success");
+    }else {
+        alert("update fail..!");
+    }
+
+
+
+});
+
   function loadAllrooms(){
 
       $('#tb').empty();
@@ -153,6 +171,22 @@ function deleteRoom(cId){
 //     }
 //     return null;
 // }
+
+function updateRoom(rId){
+    let room=searchRoom(rId);
+    if (room!=null){
+        room.id=$('#input1').val();
+        room.type=$('#input2').val();
+        room.status=$('#input3').val();
+        room.price=$('#input4').val();
+        loadAllrooms();
+        return true;
+    }else {
+        return false;
+    }
+
+
+}
 
 
 
