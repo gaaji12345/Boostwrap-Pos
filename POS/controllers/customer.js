@@ -103,3 +103,30 @@ function btnRowClick (){
 
      });
  }
+
+function searchCustomer(id){
+    for (let i=0;i<customers.length;i++){
+        if (customers[i].customerID == id){
+            return customers[i];
+        }
+    }
+}
+
+$('#btnsearchCustomer').click(function (){
+    var  searchId=$("#txtFinds").val();
+    var responce=searchCustomer(searchId);
+    if (responce){
+        $("#txtCid").val(responce.customerID);
+        $("#txtName").val(responce.customerName);
+        $("#txtAddress").val(responce.customerAddress);
+        $("#txtContact").val(responce.customerContact);
+
+
+    }else {
+       // clearAll();
+        alert("No Customer Find...!")
+    }
+});
+
+
+
