@@ -3,6 +3,7 @@
 $('#btnsaveitem').click(function (){
     saveItem();
     loadAllItems();
+    btnRowClick();
 
 });
 
@@ -69,6 +70,24 @@ $('#btnUpdateItem').click(function (){
         }
     }
 });
+
+function btnRowClick (){
+    $('#tbItem>tr').click(function (){
+        let id=$(this).children(":eq(0)").text();
+        let name=$(this).children(":eq(1)").text();
+        let price=$(this).children(":eq(2)").text();
+        let qty=$(this).children(":eq(3)").text();
+
+        // console.log(id,name,address,contact);
+
+        $('#txtitemcode').val(id);
+        $('#txtitemname').val(name);
+        $('#txtprice').val(price);
+        $('#txtqty').val(qty);
+
+    });
+
+}
 
 
 
