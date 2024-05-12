@@ -22,7 +22,7 @@ function saveItem() {
 
     items.push(newItem);
 
-    //clearFeilds();
+     clearFeilds();
     // clearCustomerFeilds();
     loadAllItems();
 
@@ -69,6 +69,16 @@ $('#btnUpdateItem').click(function (){
                 break;
             }
         }
+    }
+});
+
+$('#btnDeleteItem').click(function (){
+    let deleteId= $('#txtitemcode').val();
+    if (deleteId) {
+        deleteItem(deleteId);
+        alert("DELETE...!");
+    }else {
+        alert("CHECK AGAIN....!");
     }
 });
 
@@ -124,8 +134,20 @@ $('#btnitemsearch').click(function (){
     }
 });
 
+function deleteItem(iId){
+    let item=searchItem(iId);
+    if (item!=null){
+        let indexof=items.indexOf(item);
+        items.splice(indexof,1);
+       loadAllItems();
+    }
+}
 
 
+function clearFeilds() {
+    $("#txtitemcode,#txtitemname,#txtprice,#txtqty").val("");
+    $('#txtitemcode').focus();
+}
 
 
 
