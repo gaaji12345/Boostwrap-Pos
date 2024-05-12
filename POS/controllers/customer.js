@@ -12,6 +12,8 @@ $('#btnsaveCustomer').click(function (){
   saveCustomer();
   LoadAll();
   btnRowClick();
+  // doubleClick();
+    remove();
 
 
 });
@@ -64,7 +66,7 @@ function btnRowClick (){
         let address=$(this).children(":eq(2)").text();
         let contact=$(this).children(":eq(3)").text();
 
-        console.log(id,name,address,contact);
+        // console.log(id,name,address,contact);
 
         $('#txtCid').val(id);
         $('#txtName').val(name);
@@ -74,3 +76,30 @@ function btnRowClick (){
     });
 
 }
+
+// function doubleClick(){
+//     $('#tbCustomer>tr').dblclick(function (){
+//         let id=$(this).children(":eq(0)").text();
+//         let name=$(this).children(":eq(1)").text();
+//         let address=$(this).children(":eq(2)").text();
+//         let contact=$(this).children(":eq(3)").text();
+//
+//         console.log(id,name,address,contact);
+//
+//         $('#txtCid').remove(id);
+//         $('#txtName').remove(name);
+//         $('#txtAddress').remove(address);
+//         $('#txtContact').remove(contact);
+//
+//     });
+// }
+
+ function remove(){
+     $("#tbCustomer>tr").dblclick(function () {
+         // $("#tb>tr").remove();
+         // alert("fdfdf");
+         $(this).remove();
+
+
+     });
+ }
