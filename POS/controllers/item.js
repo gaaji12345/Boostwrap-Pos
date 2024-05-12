@@ -8,7 +8,7 @@ $('#btnsaveitem').click(function (){
 
 function saveItem() {
     let itemID=$('#txtitemcode').val();
-    let itemName=$('#txtitemnamet').val();
+    let itemName=$('#txtitemname').val();
     let itemPrice=$('#txtprice').val();
     let itemQty=$('#txtqty').val();
 
@@ -47,3 +47,30 @@ function loadAllItems(){
         // bindCustomerTrEvents();
     }
 }
+
+$('#btnUpdateItem').click(function (){
+
+    let consent=confirm("ARE YOU SHURE NEED TO UPDATE THIS ITEM..?");
+
+    if (consent){
+        for (let i = 0; i < items.length; i++) {
+            if ($('#txtitemcode').val()==items[i].itemId){
+                items[i].itemId=$('#txtitemcode').val();
+                items[i].itemNameite=$('#txtitemname').val();
+                items[i].price=$('#txtprice').val();
+                items[i].qty=$('#txtqty').val();
+                //getAllCustomer();
+                loadAllItems();
+                //clearCustomerFeilds();
+                clearFeilds();
+                alert("UPDATED SUCSUS");
+                break;
+            }
+        }
+    }
+});
+
+
+
+
+
