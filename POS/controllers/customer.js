@@ -32,6 +32,7 @@ function saveCustomer() {
     newCustomer.customerContact=cusContact;
 
         customers.push(newCustomer);
+        clearFeilds();
        // clearCustomerFeilds();
         LoadAll();
 
@@ -82,6 +83,7 @@ $('#btnUpCustomer').click(function (){
                 //getAllCustomer();
                 LoadAll();
                 //clearCustomerFeilds();
+                clearFeilds();
                 alert("UPDATED SUCSUS");
                 break;
             }
@@ -94,7 +96,12 @@ $('#btnUpCustomer').click(function (){
 
 $('#btnDeleteCustomer').click(function (){
     let deleteId= $('#txtCid').val();
-    deleteCustomer(deleteId);
+    if (deleteId) {
+        deleteCustomer(deleteId);
+        alert("DELETE...!");
+    }else {
+        alert("CHECK AGAIN....!");
+    }
 });
 function btnRowClick (){
     $('#tbCustomer>tr').click(function (){
@@ -160,7 +167,7 @@ $('#btnsearchCustomer').click(function (){
 
 
     }else {
-       // clearAll();
+       clearFeilds();
         alert("No Customer Find...!")
     }
 });
@@ -188,7 +195,11 @@ function updateCustomer(cId){
         return false;
     }
 
+}
 
+function clearFeilds() {
+    $("#txtCid,#txtName,#txtAddress,#txtContact").val("");
+    $('#txtCid').focus();
 }
 
 
