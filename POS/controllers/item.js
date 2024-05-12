@@ -4,6 +4,7 @@ $('#btnsaveitem').click(function (){
     saveItem();
     loadAllItems();
     btnRowClick();
+    remove();
 
 });
 
@@ -87,6 +88,16 @@ function btnRowClick (){
 
     });
 
+}
+
+function remove(){
+    $("#tbItem>tr").dblclick(function () {
+        // $("#tb>tr").remove();
+        // alert("fdfdf");
+        $(this).remove();
+
+
+    });
 }
 
 
