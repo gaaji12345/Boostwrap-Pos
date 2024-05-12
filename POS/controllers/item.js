@@ -100,6 +100,31 @@ function remove(){
     });
 }
 
+function searchItem(id){
+    for (let i=0;i<items.length;i++){
+        if (items[i].itemId == id){
+            return items[i];
+        }
+    }
+}
+
+$('#btnitemsearch').click(function (){
+    var  searchId=$("#findItem").val();
+    var responce=searchItem(searchId);
+    if (responce){
+        $("#txtitemcode").val(responce.itemId);
+        $("#txtitemname").val(responce.itemName);
+        $("#txtprice").val(responce.price);
+        $("#txtqty").val(responce.qty);
+
+
+    }else {
+        clearFeilds();
+        alert("No Item Find...!")
+    }
+});
+
+
 
 
 
