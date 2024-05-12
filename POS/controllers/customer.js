@@ -59,6 +59,39 @@ function LoadAll() {
 
 }
 
+$('#btnUpCustomer').click(function (){
+
+    //
+    // let cusid=$('#txtCid').val();
+    // let respo=updateCustomer(cusid);
+    // if (respo){
+    //     alert("Update success");
+    // }else {
+    //     alert("Update fail..!");
+    // }
+
+    let consent=confirm("DO U WANT UPDATE THIS CUSTOMER");
+
+    if (consent){
+        for (let i = 0; i < customers.length; i++) {
+            if ($('#txtCid').val()==customers[i].customerID){
+                customers[i].customerID=$('#txtCid').val();
+                customers[i].customerName=$('#txtName').val();
+                customers[i].customerAddress=$('#txtAddress').val();
+                customers[i].customerContact=$('#txtContact').val();
+                //getAllCustomer();
+                LoadAll();
+                //clearCustomerFeilds();
+                alert("UPDATED SUCSUS");
+                break;
+            }
+        }
+    }
+
+
+
+});
+
 $('#btnDeleteCustomer').click(function (){
     let deleteId= $('#txtCid').val();
     deleteCustomer(deleteId);
@@ -140,6 +173,22 @@ function deleteCustomer(cId){
         customers.splice(indexof,1);
         LoadAll();
     }
+}
+
+function updateCustomer(cId){
+    let customer=searchCustomer(cId);
+    if (customer!=null){
+        customer.customerID=$('#txtCid').val();
+        customer.customerName=$('#txtName').val();
+        customer.customerAddress=$('#txtAddress').val();
+        customer.customerContact=$('#txtContact').val();
+       LoadAll;
+        return true;
+    }else {
+        return false;
+    }
+
+
 }
 
 
