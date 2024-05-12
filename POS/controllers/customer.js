@@ -59,6 +59,10 @@ function LoadAll() {
 
 }
 
+$('#btnDeleteCustomer').click(function (){
+    let deleteId= $('#txtCid').val();
+    deleteCustomer(deleteId);
+});
 function btnRowClick (){
     $('#tbCustomer>tr').click(function (){
         let id=$(this).children(":eq(0)").text();
@@ -128,5 +132,14 @@ $('#btnsearchCustomer').click(function (){
     }
 });
 
+
+function deleteCustomer(cId){
+    let customer=searchCustomer(cId);
+    if (customer!=null){
+        let indexof=customers.indexOf(customer);
+        customers.splice(indexof,1);
+        LoadAll();
+    }
+}
 
 
