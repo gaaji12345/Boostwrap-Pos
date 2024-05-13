@@ -14,6 +14,9 @@ $('#btnsaveCustomer').click(function (){
   btnRowClick();
   // doubleClick();
     remove();
+    //loadAllCustIds();
+   // loadAllCusIds();
+    cusIds();
 
 
 });
@@ -71,7 +74,7 @@ $('#btnUpCustomer').click(function (){
     //     alert("Update fail..!");
     // }
 
-    let consent=confirm("DO U WANT UPDATE THIS CUSTOMER");
+    let consent=confirm("ARE YOU SHURE NEED TO UPDATE..?");
 
     if (consent){
         for (let i = 0; i < customers.length; i++) {

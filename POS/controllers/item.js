@@ -5,6 +5,7 @@ $('#btnsaveitem').click(function (){
     loadAllItems();
     btnRowClick();
     remove();
+    itemIds();
 
 });
 
