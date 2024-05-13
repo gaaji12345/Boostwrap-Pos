@@ -139,6 +139,27 @@ $('#cmbcId').change(function () {
     }
 });
 
+function itemIds() {
+
+    var itemd = '';
+    for (var i = 0; i < items.length; i++) {
+        itemd += '<option value="' + items[i].itemId + '">' + items[i].itemId + '</option>';
+    }
+    $('#cmbIcode').append(itemd);
+}
+
+$('#cmbIcode').change(function () {
+    for (let i = 0; i < items.length; i++) {
+        if ($(this).val()==items[i].itemId){
+            $('#itemName').val(items[i].itemName);
+            $('#itemPrice').val(items[i].price);
+            $('#iqtyOnHand').val(items[i].qty);
+            break;
+        }
+    }
+});
+
+
 
 
 
