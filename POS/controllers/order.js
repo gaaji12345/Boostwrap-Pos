@@ -150,6 +150,12 @@ function setOrderId() {
     $('#order-id').val(OrdertxtID+oNo);
    // console.log(Number(oNo));
 }
+function searchOrder(id) {
+    return orders.find(function (order) {
+
+        return order.oid == id;
+    });
+}
 function generateOrderId() {
 
     if (order.length == 0) {
@@ -267,27 +273,6 @@ $("#order-add-item").click(function () {
                     </tr>`;
 
         $("#order-table").append(row);
-        // $('#order-table').css({
-        //     'width ': '101.8%',
-        //     'max-height': '80px',
-        //     'overflow-y': 'auto',
-        //     'display': 'table-caption'
-        // });
-        // $('#order-table>tr>td').css({
-        //     'flex': '1',
-        //     'max-width': 'calc(100%/5*1)'
-        // });
-        // if ($("#order-table>tr").length > 1) {
-        //     $('#order-table>tr').css({
-        //         'width': '100%',
-        //         'display': 'flex'
-        //     });
-        // } else {
-        //     $('#order-table>tr').css({
-        //         'width': '925px',
-        //         'display': 'flex'
-        //     });
-        // }
 
     }
 
@@ -300,6 +285,58 @@ $("#order-add-item").click(function () {
 
     $("#subtotal").text(allTotal);
 });
+
+function setBalance() {
+    let subtotalText = $("#subtotal").text();
+    let cashText = $("#txtCash").val();
+    let subtotal = parseFloat(subtotalText);
+    let cash = parseFloat(cashText);
+    if (!isNaN(subtotal) && !isNaN(cash)) {
+        let balance = cash - subtotal;
+        $("#txtBalance").val(balance.toFixed(2));
+    } else {
+        $("#txtBalance").val("0");
+    }
+}
+
+$("#order-date").on("input", function () {
+    dateCheck();
+});
+
+function dateCheck() {
+    let val = $("#order-date").val();
+    if (val==""){
+        $("#order-date").css("border", "2px solid red");
+        return false
+    }else {
+        $("#order-date").css("border", "2px solid green");
+        return true;
+    }
+}
+$("#btnSubmitOrder").click(function () {
+    let oId = $("#order-id").val();
+   // if (itemValidate()) {
+        if (!searchOrder(oId)) {
+          //  if (cashValidate()) {
+                if (dateCheck()) {
+                    placeOrder();
+                    alert("Order Place Successfully");
+                    //clearAll();
+                    generateOrderId();
+                } else {
+                    alert("Insert Date!");
+                }
+            // } else {
+            //     alert("Insuficent Credit : Check Cash!");
+            // }
+        } else {
+            alert("Order Already Registered");
+        }
+    // }else {
+    //     alert("Pleace Add Items to Place Order");
+    // }
+});
+
 
 
 
