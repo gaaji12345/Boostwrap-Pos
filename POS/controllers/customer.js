@@ -23,21 +23,26 @@ $('#btnsaveCustomer').click(function (){
 
 
 function saveCustomer() {
-    let cusID=$('#txtCid').val();
-    let cusName=$('#txtName').val();
-    let cusAddress=$('#txtAddress').val();
-    let cusContact=$('#txtContact').val();
+    let cusID = $('#txtCid').val();
+    let cusName = $('#txtName').val();
+    let cusAddress = $('#txtAddress').val();
+    let cusContact = $('#txtContact').val();
 
     let newCustomer = Object.assign({}, customerObj);
-    newCustomer.customerID=cusID;
-    newCustomer.customerName=cusName;
-    newCustomer.customerAddress=cusAddress;
-    newCustomer.customerContact=cusContact;
-
+    newCustomer.customerID = cusID;
+    newCustomer.customerName = cusName;
+    newCustomer.customerAddress = cusAddress;
+    newCustomer.customerContact = cusContact;
+    if (checkValidtion()) {
         customers.push(newCustomer);
-        clearFeilds();
-       // clearCustomerFeilds();
         LoadAll();
+
+    } else{
+        clearFeilds();
+    }
+
+
+       // clearCustomerFeilds();
 
 }
 
@@ -204,5 +209,6 @@ function clearFeilds() {
     $("#txtCid,#txtName,#txtAddress,#txtContact").val("");
     $('#txtCid').focus();
 }
+
 
 
